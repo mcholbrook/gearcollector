@@ -13,6 +13,10 @@
         <p>Notes: {{ item.notes }}</p>
         <p>Type of Camping: {{ item.get_typeofcamping_display }}</p>
       </div>
+      <div class="card-action">
+        <a href="{% url 'gear_update' item.id %}">Edit</a>
+        <a href="{% url 'gear_delete' item.id %}">Delete</a>
+      </div>
     </div>
   </div>
 

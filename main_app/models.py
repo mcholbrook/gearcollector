@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 CAMPING = (
   ('C', 'Car Camping'),
@@ -19,3 +20,6 @@ class Item(models.Model):
 
   def __str__(self):
     return self.name
+
+  def get_absolute_url(self):
+    return reverse('gear_detail', kwargs={'item_id': self.id })

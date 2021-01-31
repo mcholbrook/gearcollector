@@ -21,4 +21,11 @@ def gear_detail(request, item_id):
 class ItemCreate(CreateView):
   model = Item
   fields = '__all__'
+
+class ItemUpdate(UpdateView):
+  model = Item
+  fields = '__all__'
+
+class ItemDelete(DeleteView):
+  model = Item
   success_url = '/gear/'
