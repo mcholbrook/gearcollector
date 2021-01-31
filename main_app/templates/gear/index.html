@@ -10,8 +10,8 @@
         <span class="card-title">{{ item.name }}</span>
         <p>Description: {{ item.description }}</p>
         <p>Category: {{ item.category}}</p>
-        <p>Notes: {{ item.notes }}</p>
         <p>Type of Camping: {{ item.get_typeofcamping_display }}</p>
+        <p>Number of Notes: {{ item.note_set.count }}</p>
       </div>
     </a>
   </div>
