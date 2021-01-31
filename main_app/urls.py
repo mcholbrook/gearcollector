@@ -9,4 +9,5 @@ urlpatterns = [
   path('gear/create/', views.ItemCreate.as_view(), name='gear_create'),
   path('gear/<int:pk>/update/', views.ItemUpdate.as_view(), name='gear_update'),
   path('gear/<int:pk>/delete/', views.ItemDelete.as_view(), name='gear_delete'),
+  path('gear/<int:item_id>/add_note', views.add_note, name='add_note'),
 ]
