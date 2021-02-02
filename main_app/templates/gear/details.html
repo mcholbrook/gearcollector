@@ -38,6 +38,56 @@
       </tbody>
     </table>
   </div>
+  <div class="row">
+    <div class="col s6">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            Currently on the packing list for these trips:
+          </span>
+          {% if item.trips.count %}
+            {% for trip in item.trips.all %}
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">
+                    {{ trip.name }}
+                  </span>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+              Hasn't been added to any trips yet.
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            Available Trips
+          </span>
+          {% if trips.count %}
+            {% for trip in trips.all %}
+              <div class="card">
+                <div class="card-content">
+                  {{trip.name}}
+                </div>
+                <div class="card-action">
+                  <form action="{% url 'assoc_trip' item.id trip.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Add</button>
+                  </form>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            This gear is already packed for all trips!
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>

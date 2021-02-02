@@ -6,7 +6,16 @@ CAMPING = (
   ('B', 'Backpacking')
 )
 
-# Create your models here.
+class Trip(models.Model):
+  name = models.CharField(max_length=50)
+  location = models.CharField(max_length=100)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('trips_detail', kwargs={'pk': self.id})
+
 class Item(models.Model):
   name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
@@ -16,6 +25,7 @@ class Item(models.Model):
     choices=CAMPING,
     default=CAMPING[0][0]
   )
+  trips = models.ManyToManyField(Trip)
 
   def __str__(self):
     return self.name

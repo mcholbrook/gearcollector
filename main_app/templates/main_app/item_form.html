@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+  <div class="card">
+    <div class="card-content">
   {% if object %}
-  <h1>Update {{object.name}}</h1>
+  <h2>Update {{object.name}}</h2>
   {% else %}
-  <h1>Add Gear</h1>
+  <h2>Add Gear</h2>
   {% endif %}
 
   <form action="" method="post">
@@ -14,10 +17,10 @@
     </table>
     <input type="submit" value="Submit" class="btn">
   </form>
-
+</div>
+</div>
   <script>
     const selectEl = document.getElementById('id_typeofcamping');
     M.FormSelect.init(selectEl)
-
   </script>
 {% endblock %}

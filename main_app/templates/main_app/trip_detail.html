@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Trip Details</h1>
+
+<div class="row">
+  <div class="col s6 col-offset-3">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ trip.name }}</span>
+        <p>Location: {{ trip.location }}</p>
+        {% for item in items %}
+        <p>Gear: {{item.name}}</p>
+        {% endfor %}
+      </div>
+      <div class="card-action">
+        <a href="{% url 'trips_update' trip.id %}">Edit</a>
+        <a href="{% url 'trips_delete' trip.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s6">
+    <h4>Gear List</h4>
+    {% if trip.item_set.count %}
+      {% for item in trip.item_set.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              {{ item.name }}
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No gear yet, add some! </h5>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
