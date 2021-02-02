@@ -19,3 +19,8 @@ footer.page-footer {
   text-align: right;
   background-color: #092215;
 }
+
+#homeCard {
+  text-align:center;
+  margin-top: 75px;
+}
