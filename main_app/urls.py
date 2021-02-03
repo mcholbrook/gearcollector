@@ -16,4 +16,5 @@ urlpatterns = [
   path('trips/<int:pk>/update/', views.TripUpdate.as_view(), name='trips_update'),
   path('trips/<int:pk>/delete/', views.TripDelete.as_view(), name='trips_delete'),
   path('gear/<int:item_id>/assoc_trip/<int:trip_id>/', views.assoc_trip, name='assoc_trip'),
+  path('accounts/signup/', views.signup, name='signup')
 ]
